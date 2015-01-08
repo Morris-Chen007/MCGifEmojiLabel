@@ -18,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    MCGifEmojiLabel* label = [[MCGifEmojiLabel alloc] initWithFrame:CGRectMake(0, 100, 320, 30)];
-    [label setTextWithEmoji:@"陈昕:狗狗好可爱(#抱抱)哈哈(#爱你)微风的撒(#害羞)额风(#闭嘴)fdf(#蛋糕)"];
-    //[processor addExpressionAndLink:label rawstring:@"陈昕:狗狗好可爱(#嘻嘻)(#嘻嘻)"];
-    [label addCustomLink:[NSURL URLWithString:@"aaa"] inRange:NSMakeRange(0, 3)];
+    MCGifEmojiLabel* label = [[MCGifEmojiLabel alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
+    [label setTextWithEmoji:@"When I was young I'd listen to the radio(#laughing),waiting for my favorite songs(#smiling).When they played I'd sing along(#flushed).It made me smile."];
+    [label addCustomLink:[NSURL URLWithString:@"https://github.com"] inRange:NSMakeRange(0, 34)];
     label.highlightedLinkColor = [UIColor grayColor];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
     
     [self.view addSubview:label];
 }

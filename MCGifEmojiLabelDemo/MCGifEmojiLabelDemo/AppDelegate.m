@@ -14,13 +14,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    UINavigationController *main
-    = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]init]];
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    frame.origin.y += 50;
-    frame.size.height -= 50;
-    [[main view] setFrame:frame];
-    self.window.rootViewController = main;
+    ViewController* vc = [[ViewController alloc]init];
+    self.window.rootViewController = vc;
     
     return YES;
 }

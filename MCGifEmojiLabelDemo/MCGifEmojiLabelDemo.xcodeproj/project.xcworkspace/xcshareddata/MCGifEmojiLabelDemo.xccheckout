@@ -10,6 +10,8 @@
 	<string>MCGifEmojiLabelDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>0B2C25E95C3B483DB939D528BA73A0C1C5E38960</key>
+		<string>https://github.com/Morris-Chen007/MCGifEmojiLabel.git</string>
 		<key>3cf95df5-8040-6441-85aa-483a4e73352d</key>
 		<string>https://221.130.6.209:11443/svn/Dev_Client_IOS</string>
 	</dict>
@@ -17,15 +19,27 @@
 	<string>MCGifEmojiLabelDemo/MCGifEmojiLabelDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3cf95df5-8040-6441-85aa-483a4e73352d</key>
+		<key>0B2C25E95C3B483DB939D528BA73A0C1C5E38960</key>
 		<string>../../..</string>
+		<key>3cf95df5-8040-6441-85aa-483a4e73352d</key>
+		<string>../../../../project</string>
 	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Morris-Chen007/MCGifEmojiLabel.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3cf95df5-8040-6441-85aa-483a4e73352d</string>
+	<string>0B2C25E95C3B483DB939D528BA73A0C1C5E38960</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B2C25E95C3B483DB939D528BA73A0C1C5E38960</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MCGifEmojiLabel</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>
