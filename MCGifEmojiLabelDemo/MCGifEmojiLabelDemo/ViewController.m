@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     MCGifEmojiLabel* label = [[MCGifEmojiLabel alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
     [label setTextWithEmoji:@"When I was young I'd listen to the radio(#laughing),waiting for my favorite songs(#smiling).When they played I'd sing along(#flushed).It made me smile."];
-    [label addCustomLink:[NSURL URLWithString:@"https://github.com"] inRange:NSMakeRange(0, 34)];
+    [label addCustomLink:[NSURL URLWithString:@"https://github.com"] inRange:NSMakeRange(0, 40)];
     label.highlightedLinkColor = [UIColor grayColor];
     label.lineBreakMode = NSLineBreakByWordWrapping;
     
