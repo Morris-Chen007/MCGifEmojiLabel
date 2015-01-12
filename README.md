@@ -22,7 +22,7 @@ How to use
 Screenshots
 -
 
-![](https://github.com/Morris-Chen007/MCGifEmojiLabel/blob/master/ScreenShots/MCGifEmojiLabel.gif)
+![](https://github.com/Morris-Chen007/MCGifEmojiLabel/blob/master/ScreenShots/screenshot.gif)
 
 Acknowledgement
 - Some of the code is merged from OHAttributedLabel.
