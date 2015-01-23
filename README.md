@@ -1,4 +1,4 @@
-MCGifEmojiLabel is a user-friendly UILabel subclass which can show emoji with animation effects.It also allows you to add custom links its text.
+MCGifEmojiLabel is a user-friendly UILabel subclass which can show emoji with animation effects.It also allows you to add custom links to its text.
 How to use
 -
 
