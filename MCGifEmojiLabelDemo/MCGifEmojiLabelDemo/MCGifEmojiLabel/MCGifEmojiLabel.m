@@ -867,7 +867,7 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
 - (void)setTextWithEmoji:(NSString *)text font:(UIFont *)font
 {
     BOOL IsContainEmoji = NO;
-    NSMutableAttributedString* mas = [MCGifEmojiParser attributedStringByProcessingMarkupInString:text containEmoji:&IsContainEmoji];
+    NSMutableAttributedString* mas = [MCGifEmojiParser attributedStringByProcessingMarkupInString:text font:font containEmoji:&IsContainEmoji];
     [mas setFont:font];
     [mas setTextAlignment:kCTTextAlignmentLeft lineBreakMode:kCTLineBreakByCharWrapping/*kCTLineBreakByWordWrapping*/];
     

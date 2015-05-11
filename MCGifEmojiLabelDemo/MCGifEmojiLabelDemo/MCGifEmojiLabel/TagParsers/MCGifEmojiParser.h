@@ -29,6 +29,6 @@
 
 @interface MCGifEmojiParser : OHASMarkupParserBase
 
-+(NSMutableAttributedString*)attributedStringByProcessingMarkupInString:(NSString*)string containEmoji:(BOOL *)containEmoji;
++(NSMutableAttributedString*)attributedStringByProcessingMarkupInString:(NSString*)string font:(UIFont *)font containEmoji:(BOOL *)containEmoji;
 
 @end

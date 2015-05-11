@@ -39,9 +39,9 @@
 
 NSDictionary *emotDicts =nil;
 
-+(void)processMarkupInAttributedString:(NSMutableAttributedString*)mutAttrString containEmoji:(BOOL *)containEmoji
++(void)processMarkupInAttributedString:(NSMutableAttributedString*)mutAttrString font:(UIFont *)font containEmoji:(BOOL *)containEmoji
 {
-    NSDictionary* mappings = [self tagMappings];
+    NSDictionary* mappings = [self tagMappings:font];
     
     NSRegularExpressionOptions options = NSRegularExpressionAnchorsMatchLines | NSRegularExpressionDotMatchesLineSeparators | NSRegularExpressionUseUnicodeWordBoundaries;
     [mappings enumerateKeysAndObjectsUsingBlock:^(id pattern, id obj, BOOL *stop1)
@@ -78,10 +78,10 @@ NSDictionary *emotDicts =nil;
     
 }
 
-+ (NSMutableAttributedString*)attributedStringByProcessingMarkupInString:(NSString*)string containEmoji:(BOOL *)containEmoji
++ (NSMutableAttributedString*)attributedStringByProcessingMarkupInString:(NSString*)string font:(UIFont *)font containEmoji:(BOOL *)containEmoji
 {
     NSMutableAttributedString* mutAttrString = [NSMutableAttributedString attributedStringWithString:string];
-    [self processMarkupInAttributedString:mutAttrString containEmoji:containEmoji];
+    [self processMarkupInAttributedString:mutAttrString font:font containEmoji:containEmoji];
     return mutAttrString;
 }
 
@@ -94,8 +94,15 @@ NSDictionary *emotDicts =nil;
     emotDicts = [[NSDictionary alloc] initWithContentsOfFile:filePath];
 }
 
-+(NSDictionary*)tagMappings
++(NSDictionary*)tagMappings:(UIFont *)font
 {
+    static CGFloat ascent = 0;
+    ascent = font.ascender;
+    static CGFloat descent = 0;
+    descent = -font.descender;
+    static CGFloat width = 0;
+    width = ascent + descent;
+    
     return [NSDictionary dictionaryWithObjectsAndKeys:
             ^NSAttributedString*(NSAttributedString* str, NSTextCheckingResult* match)
             {
@@ -113,8 +120,9 @@ NSDictionary *emotDicts =nil;
                     callbacks.dealloc = deallocCallback;
                     
                     NSDictionary* imgAttr = [[NSDictionary dictionaryWithObjectsAndKeys: //2
-                                              @"15", @"width",
-                                              @"15", @"height",
+                                              [NSString stringWithFormat:@"%f", width], @"width",
+                                              [NSString stringWithFormat:@"%f", ascent], @"ascent",
+                                              [NSString stringWithFormat:@"%f", descent], @"descent",
                                               nil] retain];
                     
                     CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, imgAttr); //3
@@ -123,7 +131,7 @@ NSDictionary *emotDicts =nil;
                                                             (id)delegate, (NSString*)kCTRunDelegateAttributeName,
                                                             nil];
                     NSMutableAttributedString* foundString = [[NSMutableAttributedString alloc] initWithString:@" " attributes:attrDictionaryDelegate];
-                    [foundString setEmoit:emotDicts[link] width:imgAttr[@"width"] height:imgAttr[@"height"]];
+                    [foundString setEmoit:emotDicts[link] width:imgAttr[@"width"] height:imgAttr[@"ascent"]];
                     
                     return MRC_AUTORELEASE(foundString);
                 } else {
@@ -140,7 +148,7 @@ static void deallocCallback( void* ref ){
     [(id)ref release];
 }
 static CGFloat ascentCallback( void *ref ){
-    return [(NSString*)[(NSDictionary*)ref objectForKey:@"height"] floatValue];
+    return [(NSString*)[(NSDictionary*)ref objectForKey:@"ascent"] floatValue];
 }
 static CGFloat descentCallback( void *ref ){
     return [(NSString*)[(NSDictionary*)ref objectForKey:@"descent"] floatValue];

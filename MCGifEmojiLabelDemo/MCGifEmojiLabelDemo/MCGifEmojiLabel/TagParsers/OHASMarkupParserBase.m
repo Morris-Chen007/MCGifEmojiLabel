@@ -35,12 +35,12 @@
 #endif
 
 @interface OHASMarkupParserBase ()
-+(NSDictionary*)tagMappings; // To be overloaded by subclasses
++(NSDictionary*)tagMappings:(UIFont *)font; // To be overloaded by subclasses
 @end
 
 @implementation OHASMarkupParserBase
 
-+(NSDictionary*)tagMappings
++(NSDictionary*)tagMappings:(UIFont *)font
 {
     [NSException raise:@"OHASMarkupParserBase" format:@"This method should be overridden in sublcasses"];
     return nil;
@@ -48,7 +48,7 @@
 
 +(void)processMarkupInAttributedString:(NSMutableAttributedString*)mutAttrString
 {
-    NSDictionary* mappings = [self tagMappings];
+    NSDictionary* mappings = [self tagMappings:nil];
     NSRegularExpressionOptions options = NSRegularExpressionAnchorsMatchLines
     | NSRegularExpressionDotMatchesLineSeparators | NSRegularExpressionUseUnicodeWordBoundaries;
     [mappings enumerateKeysAndObjectsUsingBlock:^(id pattern, id obj, BOOL *stop1)
