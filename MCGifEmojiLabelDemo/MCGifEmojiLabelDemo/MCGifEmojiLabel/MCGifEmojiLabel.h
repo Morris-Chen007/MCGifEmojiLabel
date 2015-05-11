@@ -34,6 +34,8 @@
 @optional
 -(BOOL)emojiLabel:(MCGifEmojiLabel*)attributedLabel shouldFollowLink:(NSTextCheckingResult*)linkInfo;
 -(UIColor*)emojiLabel:(MCGifEmojiLabel*)attributedLabel colorForLink:(NSTextCheckingResult*)linkInfo underlineStyle:(int32_t*)underlineStyle;
+- (BOOL)emojiLabel:(MCGifEmojiLabel*)attributedLabel shouldAdjustToSuggestedHeight:(CGFloat)height;
+
 @end
 
 typedef NS_OPTIONS(int32_t, MCBoldStyleTrait) {
@@ -64,7 +66,7 @@ typedef NS_OPTIONS(int32_t, MCBoldStyleTrait) {
 //! Commodity setter to set the linkUnderlineStyle to CTUnderlineStyleSingle (YES) / CTUnderlineStyleNone (NO)
 -(void)setUnderlineLinks:(BOOL)underlineLinks;
 //! Use it when you want to show emoji with animation effects.
-- (void)setTextWithEmoji:(NSString *)text;
+- (void)setTextWithEmoji:(NSString *)text font:(UIFont *)font;
 //! Add a link to some text in the label
 -(void)addCustomLink:(NSURL*)linkUrl inRange:(NSRange)range;
 //! Remove all custom links from the label

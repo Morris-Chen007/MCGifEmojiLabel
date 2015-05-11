@@ -592,20 +592,28 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
         CFAttributedStringRef cfAttrStrWithLinks = (BRIDGE_CAST CFAttributedStringRef)attributedStringToDisplay;
         CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(cfAttrStrWithLinks);
         drawingRect = self.bounds;
+        CGSize sz = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,CFRangeMake(0,0),NULL,CGSizeMake(drawingRect.size.width,CGFLOAT_MAX),NULL);
+        
+        if ([self.delegate respondsToSelector:@selector(emojiLabel:shouldAdjustToSuggestedHeight:)] && [self.delegate emojiLabel:self shouldAdjustToSuggestedHeight:sz.height])
+        {
+            drawingRect.size.height = sz.height;
+        }
+        
         if (self.centerVertically || self.extendBottomToFit)
         {
-            CGSize sz = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,CFRangeMake(0,0),NULL,CGSizeMake(drawingRect.size.width,CGFLOAT_MAX),NULL);
             if (self.extendBottomToFit)
             {
                 CGFloat delta = MAX(0.f , ceilf(sz.height - drawingRect.size.height)) + 10 /* Security margin */;
                 drawingRect.origin.y -= delta;
                 drawingRect.size.height += delta;
             }
+
             if (self.centerVertically && drawingRect.size.height > sz.height)
             {
                 drawingRect.origin.y -= (drawingRect.size.height - sz.height)/2;
             }
         }
+        
         CGMutablePathRef path = CGPathCreateMutable();
         CGPathAddRect(path, NULL, drawingRect);
         textFrame = CTFramesetterCreateFrame(framesetter,CFRangeMake(0,0), path, NULL);
@@ -856,11 +864,11 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
     return _attributedText;
 }
 
-- (void)setTextWithEmoji:(NSString *)text
+- (void)setTextWithEmoji:(NSString *)text font:(UIFont *)font
 {
     BOOL IsContainEmoji = NO;
     NSMutableAttributedString* mas = [MCGifEmojiParser attributedStringByProcessingMarkupInString:text containEmoji:&IsContainEmoji];
-    [mas setFont:[UIFont systemFontOfSize:14]];
+    [mas setFont:font];
     [mas setTextAlignment:kCTTextAlignmentLeft lineBreakMode:kCTLineBreakByCharWrapping/*kCTLineBreakByWordWrapping*/];
     
     MRC_RELEASE(_attributedText);

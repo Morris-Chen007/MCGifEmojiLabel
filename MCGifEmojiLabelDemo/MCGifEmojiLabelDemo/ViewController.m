@@ -27,7 +27,10 @@
 #import "ViewController.h"
 #import "MCGifEmojiLabel.h"
 
-@interface ViewController ()
+@interface ViewController ()<MCGifEmojiLabelDelegate>
+{
+    MCGifEmojiLabel* label;
+}
 
 @end
 
@@ -36,13 +39,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    MCGifEmojiLabel* label = [[MCGifEmojiLabel alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
-    [label setTextWithEmoji:@"When I was young I'd listen to the radio(#laughing),waiting for my favorite songs(#smiling).When they played I'd sing along(#flushed).It made me smile."];
+    label = [[MCGifEmojiLabel alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
+    label.backgroundColor = [UIColor lightGrayColor];
+    label.delegate = self;
+    [label setTextWithEmoji:@"When I was young I'd listen to the radio(#laughing),waiting for my favorite songs(#smiling).When they played I'd sing along(#flushed).It made me smile." font:[UIFont systemFontOfSize:14]];
     [label addCustomLink:[NSURL URLWithString:@"https://github.com"] inRange:NSMakeRange(0, 40)];
     label.highlightedLinkColor = [UIColor grayColor];
     label.lineBreakMode = NSLineBreakByWordWrapping;
     
     [self.view addSubview:label];
+}
+
+- (BOOL)emojiLabel:(MCGifEmojiLabel*)attributedLabel shouldAdaptToSuggestedHeight:(CGFloat)height
+{
+    CGRect frame = label.frame;
+    frame.size.height = height;
+    label.frame = frame;
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
