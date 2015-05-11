@@ -27,7 +27,6 @@
 
 #import "MCGifEmojiParser.h"
 #import "NSAttributedString+Attributes.h"
-#import "NSString+Base64.h"
 
 #if __has_feature(objc_arc)
 #define MRC_AUTORELEASE(x) (x)

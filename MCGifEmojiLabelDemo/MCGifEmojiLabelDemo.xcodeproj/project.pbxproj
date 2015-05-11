@@ -14,8 +14,6 @@
 		A5687BA71A4A94F4000F9B4F /* MCGifEmojiLabelDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BA61A4A94F4000F9B4F /* MCGifEmojiLabelDemoTests.m */; };
 		A5687BB31A4A95AB000F9B4F /* MCGifEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BB21A4A95AB000F9B4F /* MCGifEmojiLabel.m */; };
 		A5687BBC1A4A9693000F9B4F /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BB41A4A9693000F9B4F /* NSAttributedString+Attributes.m */; };
-		A5687BBD1A4A9693000F9B4F /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BB71A4A9693000F9B4F /* NSData+Base64.m */; };
-		A5687BBE1A4A9693000F9B4F /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BB91A4A9693000F9B4F /* NSString+Base64.m */; };
 		A5687BBF1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BBB1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.m */; };
 		A5687BC51A4A96E8000F9B4F /* MCGifEmojiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BC11A4A96E8000F9B4F /* MCGifEmojiParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A5687BC61A4A96E8000F9B4F /* OHASMarkupParserBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A5687BC31A4A96E8000F9B4F /* OHASMarkupParserBase.m */; };
@@ -134,10 +132,6 @@
 		A5687BB21A4A95AB000F9B4F /* MCGifEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCGifEmojiLabel.m; sourceTree = "<group>"; };
 		A5687BB41A4A9693000F9B4F /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
 		A5687BB51A4A9693000F9B4F /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
-		A5687BB61A4A9693000F9B4F /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		A5687BB71A4A9693000F9B4F /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		A5687BB81A4A9693000F9B4F /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		A5687BB91A4A9693000F9B4F /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		A5687BBA1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextCheckingResult+ExtendedURL.h"; sourceTree = "<group>"; };
 		A5687BBB1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextCheckingResult+ExtendedURL.m"; sourceTree = "<group>"; };
 		A5687BC11A4A96E8000F9B4F /* MCGifEmojiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCGifEmojiParser.m; sourceTree = "<group>"; };
@@ -322,10 +316,6 @@
 				A5687BD21A4AA292000F9B4F /* MCGifEmojiTimerProcessor.m */,
 				A5687BB51A4A9693000F9B4F /* NSAttributedString+Attributes.h */,
 				A5687BB41A4A9693000F9B4F /* NSAttributedString+Attributes.m */,
-				A5687BB61A4A9693000F9B4F /* NSData+Base64.h */,
-				A5687BB71A4A9693000F9B4F /* NSData+Base64.m */,
-				A5687BB81A4A9693000F9B4F /* NSString+Base64.h */,
-				A5687BB91A4A9693000F9B4F /* NSString+Base64.m */,
 				A5687BBA1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.h */,
 				A5687BBB1A4A9693000F9B4F /* NSTextCheckingResult+ExtendedURL.m */,
 				A5687BCE1A4A9FF2000F9B4F /* PrivateUtils */,
@@ -637,8 +627,6 @@
 				A5687BB31A4A95AB000F9B4F /* MCGifEmojiLabel.m in Sources */,
 				A5687BC61A4A96E8000F9B4F /* OHASMarkupParserBase.m in Sources */,
 				A5687B8D1A4A94F3000F9B4F /* main.m in Sources */,
-				A5687BBD1A4A9693000F9B4F /* NSData+Base64.m in Sources */,
-				A5687BBE1A4A9693000F9B4F /* NSString+Base64.m in Sources */,
 				A5687BD11A4A9FF2000F9B4F /* CoreTextUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
